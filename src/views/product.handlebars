@@ -1,0 +1,75 @@
+<nav>
+  <div>
+    <a href="/products/carts/{{user.cart}}">Cart</a>
+    <a href="/products">Products</a>
+
+    {{#if userAdmin}}
+      <button type="button"></button>
+      <div id="navbarSupportedContent">
+        <ul>
+          <li>
+            <a href="/products/realTimeProducts">RealTimeProducts</a>
+          </li>
+        </ul>
+      </div>
+    {{/if}}
+  </div>
+</nav>
+
+<div>
+  <div>
+    <div>
+      <div style="border-radius: 15px;">
+        <div data-mdb-ripple-color="light">
+          <img
+            src="/img/{{product.thumbnails}}"
+            style="border-top-left-radius: 15px;
+              border-top-right-radius: 15px;"
+            alt={{product.title}}
+          />
+          <a href="#!">
+            <div></div>
+          </a>
+        </div>
+        <div>
+          <div>
+            <div>
+              <p>{{product.title}}</p>
+              <p>{{product.description}}</p>
+            </div>
+            <div>
+              <div>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
+              <p>Rated 4.0/5</p>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <div>
+            <p>${{product.price}}</p>
+            <p>{{product.code}}</p>
+          </div>
+          <p>VISA Platinum</p>
+        </div>
+        <hr />
+        <div>
+          <div>
+            <a href="#!">Cancel</a>
+            <button
+              type="button"
+              onclick="addProductToCart(`{{product._id}}`, `{{user.cart}}`)"
+            >Buy now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/products.js"></script>
